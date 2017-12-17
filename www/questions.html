@@ -32,16 +32,13 @@
         <div class="card-image">
 			<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
 
-          <img src="#" id="img_question" style="display: none;"/>
-		<button type="button" id="btn_open_chat" class="btn-floating halfway-fab waves-effect waves-light orange"><i class="material-icons">chat</i></button>
-          <button class="btn-floating halfway-fab waves-effect waves-light orange" value="0" id="play_audio" style="right: 80px;"><i class="material-icons">play_circle_outline</i></button>
-        </div>
+       </div>
         <div class="card-content ">
 		<div class="col s12 m12 rep_q_user">
-		<div class="col s3 m3"><button class="btn-floating btn-large grey" value='1'>1</button></div>
-		<div class="col s3 m3"><button class="btn-floating btn-large grey" value='1'>2</button></div>
-		<div class="col s3 m3"><button class="btn-floating btn-large grey" value='1'>3</button></div>
-		<div class="col s3 m3"><button class="btn-floating btn-large grey" value='1'>4</button></div>
+		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='1'>1</button></div>
+		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='1'>2</button></div>
+		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='1'>3</button></div>
+		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='1'>4</button></div>
         </div>
 		<div class="col s12 m12">
 		<br>
@@ -63,79 +60,16 @@
 
 
 
-<div id="angl_chats">
-<div class="row">
-		 <h6 class="header_chat"> <i class="material-icons icon-header-cadr">chat</i> Chat  
-
-		<button type="button" id="btn_close_chat" class="btn-floating waves-effect waves-light orange"><i class="material-icons">close</i></button>
-		 </h6>
-		 
-		<div class="all_chat" id="all_chat"> 
-		
-
-		</div>
-	</div>
 	
 	
 	
-	<div class="row" id="form_chat">
-    <form class="col s12">
-      <div class="row">
-	  <div class="row">
-	  <!-- Switch -->
-	  <p class="img_question_cap" data-active="0">
-     <img src="images/img_capt.jpg" /> <span> Joindre  l'image de question </span>
-     </p>
-	</div>
- 
- 
-        <div class="input-field col s8">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text"  id="message" />
-        </div>
-		  <div class="input-field col s3">
-            <button class="btn waves-effect waves-light"  id="envoyer" type="button" name="action">
-				<i class="material-icons right">send</i>
-		</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  </div>
  	<script type="text/javascript">
 	
 	
 	$(document).ready(function(){
         
 // pub
-        	$.post(url_ws,{method:"pub"}, function() {
-	},"json")
-  .done(function(result) {
 
-
-    var data_res=result.data;
-	var count=data_res.length;
-	
-	if(count>0){
-	
-	var pub=data_res[0].img;
-	if(pub==""){
-		pub="img_pub/pub-def.png";
-	}
-
-	}
-              
-  $(".img_pub img").attr("src",url_fix+pub);
-  $(".img_pub").show();
-  }).fail(function() {
-  
-
-	var $toastContent = $("<span > Pas de connexion internet   </span>");
-  Materialize.toast($toastContent, 3000,"alert-danger","top");
-     $("#loading").hide();
-  });
-  
-//-----------------
         
         
         
@@ -339,193 +273,6 @@ if(  $(this).val()==1){
 
       
   </script>
-  <!------------- chats script-->
-    <script>
-
-
-		$( document ).ready(function() {
-				//----------------------
-			
-	
-	
-/*
-    background-color: #fafafa !important;
-    border: 1px solid orange;
-*/			
-
-		var last_id_chat=get_l_s_by_name("last_id_chat");
-		var user_id=get_l_s_by_name("id_user");
-		var ecole_id=get_l_s_by_name("ecole_id");
-		var nom=get_l_s_by_name("nom");
-		var nom_famille=get_l_s_by_name("nom_famille");
-		
-	 // $('#chat').scrollTop($('#chat')[0].scrollHeight);
-		 $("#loading").show();
-		get_last_mesage(20,"init");
-
-		setTimeout(function(){ 
-		setInterval(function(){ 
-		get_last_mesage(20,"real_time");
-	
-		}, 2000);
-		},5000);
-			
-			
-			
-		//--- 
-function get_last_mesage(nb_msg,stat){
-
-	var id_chat=$('#all_chat .div_msg:last-child').attr("data-id");
-	if(typeof id_chat== 'undefined'){
-	id_chat=0;
-	}
-
-	$.post(url_ws_chat, { user_id:user_id,ecole_id:ecole_id,action: "get_last_message",nb_msg:nb_msg,last_id_chat:last_id_chat ,stat:stat},"json")
-	.done(function( data ) {
-	
-	var ids_new_msg = [];
-
-	//var data=JSON.parse(data);
-
-	var all_chat="";
-	
-	var all_msg=data.result.all_msg;
-	
-	for(i=0;i<all_msg.length;i++){
-	if(all_msg[i].message!=""){
-	
-	var count_=$(".div_msg[data-id='"+all_msg[i].id_chat+"']").length;
-
-	if(count_==0){
-	all_chat+=all_msg[i].message;
-	
-	var msg_notif=parseInt($(".msg_notif").text());
-	msg_notif=parseInt(all_msg[i].count_message);
-	$(".msg_notif").text(msg_notif);
-	set_l_s_by_name("last_id_chat",all_msg[i].id_chat);
-	last_id_chat=all_msg[i].id_chat;
-	
-	if(stat=="real_time"){
-	ids_new_msg.push(all_msg[i].id_chat);
-
-	}
-	}
-	}
-	
-	}
-	
-	$("#all_chat").append(all_chat);
-	// ids_new_msg
-	for(j=0;j<ids_new_msg.length;j++){
-	$('div[data-id="'+ids_new_msg[j]+'"]').addClass("div_msg_new");
-	}
-	
-	
-	if(all_msg.length>0){
-	
-	$("#all_chat").scrollTop($("#all_chat")[0].scrollHeight);
-	/*
-	var audioElement = document.createElement('audio');
-	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
-	audioElement.play();  
-	*/
-	
-	}
-	
-	/*
-	var audioElement = document.createElement('audio');
-	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
-	audioElement.play();
-	*/
-				
-
-	
-	
-
-
-
-	});
- $("#loading").hide();
-}
-		
-		$(document).keypress(function(e) {
-    if(e.which == 13) {
-     
-		$('#envoyer').trigger('click');
-    }
-});
-			
-		$( "#envoyer" ).on( "click", function() {	
-		
-		if($("#message").val()!=""){
-		var msg_capt="";
-		var is_c_msg=$(".img_question_cap").attr("data-active");
-		if(is_c_msg==1){
-		var ques_int=$("#num_q_serie").text();
-		var img_int=$("#img_question").attr("src");
-		ques_int=ques_int.replace("play_circle_filled","");
-		msg_capt="<h6>"+ques_int+"</h6>"+"<img class='img_capt_q' src='"+img_int+"' >";
-		}
-		
-		var message=msg_capt+"<br/>"+$("#message").val();
-						/* */ 
-						
-		
-		var date_message=new Date().toISOString().slice(0, 19).replace('T', ' ');
-		var jqxhr = $.post( url_ws_chat,{user_id:user_id,ecole_id:ecole_id,nom:nom,nom_famille:nom_famille,action:"envoyer_message",message:message,date_message:date_message}, function(data) {
-		},"json")
-		.done(function(data) {
-		
-		
-		var all_msg=data.result.all_msg;
-			
-		if(all_msg.length>0){
-		$("#message").val("");
-		
-	if(all_msg[0].message!=""){
-	var msg=all_msg[0].message;
-msg=msg.replace(":)","<i class='material-icons dp48'>insert_emoticon</i>");
-msg=msg.replace(":(","<i class='material-icons dp48'>mood_bad</i>");
-msg=msg.replace("<3","<i class='material-icons dp48'>favorite</i>");
-
-		
-	$("#all_chat").append(msg);	
-		$('div[data-id="'+all_msg[0].id_chat+'"]').addClass("div_msg_new");
-	set_l_s_by_name("last_id_chat",all_msg[0].id_chat);
-	last_id_chat=all_msg[0].id_chat;
-	
-	var objDiv = document.getElementById("all_chat");
-	objDiv.scrollTop = objDiv.scrollHeight;
-	
-	}
-
-
-		}
-		
-	var img_capt_def="images/img_capt.jpg";
-	$(".img_question_cap").find("img").attr("src",img_capt_def);
-$(".img_question_cap").find("span").text(" Joindre  l'image de question");
-$(".img_question_cap").attr("data-active","0");
-
-		// alert("envoyer");
-	// ->
-		})
-		.fail(function() {
-	
-		
-		var $toastContent = $("<span > Impossible d'envoyer le message !  !</span>");
-		Materialize.toast($toastContent, 3000,"alert-danger","top");
-		})
-		.always(function() {});
-		}
-		/* */
-		});
-		
-			
-		//----------------------
-		});
-		
-	
-    </script>
+ 
     </body>
   </html>
