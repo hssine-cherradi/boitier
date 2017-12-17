@@ -164,23 +164,7 @@
 	
 	/*--------------------------------*/
 	
-	$("#play_audio").click(function(){
-	
-	if($(this).val()==0){
-	audioElement.play();
-	$(this).val("1");
-	
-	$(this).find("i").text("pause_circle_outline");
-	
-	}else{
-	audioElement.pause();
-	
-	$(this).val("0");
-	
-	$(this).find("i").text("play_circle_filled");
-	
-	}
-	});
+
 	
 	
 	$("#valider").click(function(){
@@ -238,7 +222,7 @@
 	 $("#loading").hide();
 	setTimeout(function(){
 
-	audioElement.play();
+	//audioElement.play();
 	$("#play_audio").val("1");
 	
 	$("#play_audio").find("i").text("pause_circle_outline");
