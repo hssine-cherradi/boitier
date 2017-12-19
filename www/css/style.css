@@ -184,3 +184,21 @@ width: 100%;
 float: left;
 max-height: 120px;
 }
+.menu-ico_{
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 5px;
+    border: 1px solid #137ba4b3;
+    margin:4px;
+}
+.menu-ico_ a{
+   
+ color: #2196F3;
+}
+.text-g-icons_ {
+    font-size: 20px;
+    padding: 4px;
+    margin-left: 8px;
+ color: #2196F3;
+}
+.text-g-icons_ img{height: 60px;}
