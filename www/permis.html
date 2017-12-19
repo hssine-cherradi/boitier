@@ -43,8 +43,10 @@
 	var nom_famille=get_l_s_by_name("nom_famille");
 	$("#nom").text(nom); $("#nom_famille").text(nom_famille);
   $("#loading").show();
+  
+  	var fournisseur_id=$_GET['fournisseur_id'];
 	var permis="";
-	$.post(url_ws,{method:"liste_permis"}, function() {
+	$.post(url_ws,{method:"liste_permis",fournisseur_id:fournisseur_id}, function() {
 	},"json")
   .done(function(result) {
 
@@ -59,7 +61,7 @@
 	
    permis+="<div class='col s6'><div class='menu-ico'><a href='"+url_s+"'><span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
 }else{
-   permis+="<div class='col s6'><div class='menu-ico'><a href='#' class='disabled'><span class='text-g-icons'>"+data_res[i]['id_categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
+   permis+="<div class='col s6'><div class='menu-ico'><a href='#' class='disabled'><span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
 
 }
 }
