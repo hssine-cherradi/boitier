@@ -44,7 +44,7 @@
 	$("#nom").text(nom); $("#nom_famille").text(nom_famille);
   $("#loading").show();
 	var fournisseurs="";
-	$.post(url_ws,{method:"liste_permis"}, function() {
+	$.post(url_ws,{method:"liste_fournisseurs"}, function() {
 	},"json")
   .done(function(result) {
     var data_res=result.data;
