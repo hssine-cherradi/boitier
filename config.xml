@@ -12,7 +12,7 @@
 <platform name="ios" >
     <access origin="*"/>
 </platform>
-<preference name="phonegap-version" value="cli-7.0.0" />
+<preference name="phonegap-version" value="cli-7.0.1" />
 <preference name="xwalkMultipleApk" value="false" />
 <plugin name="cordova-plugin-device" spec="1.1.2"/>
 <plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
