@@ -1,4 +1,4 @@
-var url_fix="http://admin.boitierapp.com/";
+var url_fix="http://www.admin.boitierapp.com/";
 var url_ws=url_fix+"ws/index.php";
 var url_ws_chat=url_fix+"ws/transactions.php";
 var $_GET = {}; 
