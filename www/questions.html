@@ -67,7 +67,7 @@
 	
 	
 	$(document).ready(function(){
-        
+      
 // pub
 
         
@@ -207,14 +207,15 @@
 	
 	 $("#loading").show();
 	$("#img_question").hide();
-	$(".rep_q_user button").val("1");
+	$(".rep_q_user button").val("2");
 	$(".rep_q_user button").removeClass("amber");
 	$(".rep_q_user button").addClass("grey");
 	
 	
 	question++;
 	question_n++;
-	if(question_n>40){location.href="resultat.html?sous_categorie_id="+sous_categorie_id+"&sous_categorie="+sous_categorie;}else{
+	var total_question=$("#total_question").text();
+	if(question_n>total_question){location.href="resultat.html?sous_categorie_id="+sous_categorie_id+"&sous_categorie="+sous_categorie;}else{
 	var data=all_data[question];
 	
 	next_q(data);
@@ -230,7 +231,7 @@
 
 	}
 	});
-	
+	 
 	/*--------------------------------*/
 	});
 </script>
