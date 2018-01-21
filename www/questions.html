@@ -33,12 +33,25 @@
 			<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
 
        </div>
+	   <div class="col s12 m12 id_r_view"> 
+	   <div class="col s1 m1"></div>
+	    <div class="col s10 m10">
+		
+<div class="r_"><span id="r_1"><span></div>
+<div class="r_"><span id="r_2"><span></div>
+<div class="r_"><span id="r_3"><span></div>
+<div class="r_"><span id="r_4"><span></div>
+	   
+	   </div>
+	    <div class="col s1 m1"></div>
+	   </div>
+	
         <div class="card-content ">
 		<div class="col s12 m12 rep_q_user">
-		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='2'>1</button></div>
-		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='2'>2</button></div>
-		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='2'>3</button></div>
-		<div class="col s12 m12"><button class="btn-floating btn-large grey" value='2'>4</button></div>
+		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>1</button></div>
+		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>2</button></div>
+		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>3</button></div>
+		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>4</button></div>
         </div>
 		<div class="col s12 m12">
 		<br>
@@ -169,9 +182,9 @@
 	
 	$("#valider").click(function(){
 
-	
-
-	
+	$(".r_ span").text("");
+	var audio = new Audio('audio_file.mp3');
+		audio.play();
 	var rep_q_user=[];
 	$( ".rep_q_user button" ).each(function( index ) {
 	
@@ -241,13 +254,17 @@
   
   
 $(".rep_q_user button").click(function(){
-if(  $(this).val()==2){
 
+var r__=$(this).text();
+
+if(  $(this).val()==2){
+	$("#r_"+r__).text(r__);
 	$(this).removeClass("grey");
 	$(this).addClass("amber");
 	$(this).val("1");
 	
 }else{
+$("#r_"+r__).text("-");
 	
 	$(this).removeClass("amber");
 	$(this).addClass("grey");

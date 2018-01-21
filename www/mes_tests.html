@@ -26,7 +26,7 @@
     			<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
 
 	<h4 id="categorie">Mes tests</h4>
-   <ul class="collection with-header series">
+   <ul class="collection with-header series_t ">
      
       
       </ul>
@@ -50,11 +50,11 @@
 	
 	if(count>0){
 	for(i=0;i<count;i++){
-	var url="resultat.html?sous_categorie_id="+data_res[i]['sous_categorie_id'];
-	series+="<li class='collection-item'> <a href='"+url+"' ><i class='material-icons dp48'>"+data_res[i]['icon']+"</i> "+data_res[i]['sous_categorie']+"<span class='span_right'>"+data_res[i]['note']+"</span></a></li>";
+	var url="resultat.html?sous_categorie_id="+data_res[i]['sous_categorie_id']+"&sous_categorie="+data_res[i]['sous_categorie'];
+	series+="<li class='collection-item'> <a href='"+url+"' ><span class='span_note'><i class='material-icons dp48'>"+data_res[i]['icon']+"</i> "+data_res[i]['sous_categorie']+"</span><span class='span_note2'>"+data_res[i]['note']+"</span>"+"<span class='span_right'><i class='material-icons'>&#xE916;</i> "+data_res[i]['date']+"</span></a></li>";
 	}
 	
-	$(".series").html(series);
+	$(".series_t").html(series);
 	 $("#loading").hide();
 	}else{
 	

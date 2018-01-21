@@ -27,9 +27,8 @@
     <div class="container">
 <div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
 	   <div class="row">
-    <div class="col s12 m12">
-	<h6 class="h6"> 
-	<i class="material-icons icon-header-cadr">play_circle_filled</i>Résultat du <span id="sous_categorie"></span> : <span class="resltat_q"></span></h6>
+  
+	<h6 class="h6"> <i class="material-icons icon-header-cadr">play_circle_filled</i>Résultat du <span id="sous_categorie"></span> : <span class="resltat_q"></span></h6>
 	
 	
 	<div class="col s12 m12 rep_q_rep_user">
@@ -37,14 +36,8 @@
 	
 		
      </div>
-  </div>
-  <div class="col s12 m12">  <center> 
-	  
-	  <hr>
-	  <a href="mes_tests.html"><h5>
-	  
-	  
-	  <i class="material-icons">&#xE889;</i> Historique des tests </h5></a></center>  </div>
+ 
+  <div class="col s12 m12">  <center> <hr> <a href="mes_tests.html" class="hist_lien"><h5><i class="material-icons">&#xE889;</i> Historique des tests </h5></a> <hr></center>  </div>
   </div>
   </div>
   </div>
@@ -81,18 +74,10 @@ var audioElement = document.createElement('audio');
 	class_="red";
 	}
 
-rep_q_rep_user+="<div class='col s2 m2'><a class='btn-floating btn-large resltat_q_a "+class_+"' href='#modal_"+data_res[i].id_question+"'>"+(i+1)+"</a></div>";
+rep_q_rep_user+="<div class='col s4 m4 '>";
 
-
- <!-- Modal Structure -->
-rep_q_rep_user+="<div id='modal_"+data_res[i].id_question+"' class='modal'>";
-rep_q_rep_user+="<div class='modal-content'>";
-rep_q_rep_user+="<h4  class=' q_n "+class_+"'>Quéstion :  "+(i+1)+"</h4>";
-
-
-rep_q_rep_user+="</div>";
-
-
+rep_q_rep_user+="<div class='glb_rep "+class_+"'>";
+rep_q_rep_user+="<span class='q_num'> Q "+(i+1)+"</span>";
 // rep_def
 var rep_def=data_res[i].rep_def;
 if(rep_def==null){rep_def="";}
@@ -101,23 +86,22 @@ else{
 var arr_r_d=rep_def.split(",");
 }
 
-rep_q_rep_user+="<br>";
-rep_q_rep_user+="<div class='row'>";
-rep_q_rep_user+="<div class='col s4'>";
-rep_q_rep_user+="<b> &nbsp; R juste</b>";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="<div class='col s8'>";
-rep_q_rep_user+="<div class='row'>";
+
+rep_q_rep_user+="<span class='elm_rep'>";
+
+rep_q_rep_user+="<i class='material-icons'>&#xE5CA;</i>";
+
+var arr_1 = [];
+
 for(var j=1;j<=arr_r_d.length;j++){
 
-var color="red";
-
-if(arr_r_d[j-1]==1){color="green";}
-rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+j+"</a></div>";
+if(arr_r_d[j-1]==1){
+arr_1.push(j);
 }
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="</div>";
+}
+rep_q_rep_user+="<span class=''>"+arr_1.join('-')+"</span>";
+rep_q_rep_user+="</span>";
+
 
 // reponse
 var reponse=data_res[i].reponse;
@@ -129,57 +113,35 @@ var arr_reponse=reponse.split(",");
 }
 
 
+rep_q_rep_user+="<span class='elm_rep'>";
+rep_q_rep_user+="<i class='material-icons'>&#xE853;</i>";
 
-rep_q_rep_user+="<div class='row'>";
-rep_q_rep_user+="<div class='col s4'>";
-rep_q_rep_user+="<b>&nbsp; Votre réponse </b>";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="<div class='col s8'>";
-rep_q_rep_user+="<div class='row'>";
+var arr_2 = [];
 for(var k=1;k<=arr_reponse.length;k++){
 
-var color="red";
-if(arr_reponse[k-1]==1){color="green";}
-rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+k+"</a></div>";
+if(arr_reponse[k-1]==1){
+arr_2.push(k);
+
 }
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="<br>";
-
-rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'>Fermer</a>";
+}
+rep_q_rep_user+="<span class='' >"+arr_2.join('-')+"</span>";
+rep_q_rep_user+="</span>";
 
 
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="<div class='modal-footer'>";
 
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="</div>";
+	 rep_q_rep_user+="</div>";
+ rep_q_rep_user+="</div>";
   
 	}
 
 	 
+	 
+	
 	 $(".rep_q_rep_user").html(rep_q_rep_user);
 	$(".resltat_q").html(res_juste+"/"+40);
 	    
-	// 	 $('.modal').modal();
-	
-	$('.modal').modal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      inDuration: 300, // Transition in duration
-      outDuration: 200, // Transition out duration
-      startingTop: '4%', // Starting top style attribute
-      endingTop: '10%', // Ending top style attribute
-      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-      
-      },
-      complete: function() { 
-	  
-	  audioElement.pause();
-	  } // Callback for Modal close
-    }
-  );
+
+
   
  $("#loading").hide();
   
