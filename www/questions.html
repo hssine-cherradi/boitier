@@ -182,6 +182,10 @@
 	
 	$("#valider").click(function(){
 
+	var elm_check= $(".rep_q_user button[value='1']").length;
+	
+	if(elm_check>0){
+	
 	$(".r_ span").text("");
 	var audio = new Audio('audio_file.mp3');
 		audio.play();
@@ -243,6 +247,14 @@
 	}, 2000);
 
 	}
+	
+	
+	}else{
+	
+	var $toastContent = $("<span >Veuillez choisir Au moins une réponse   </span>");
+	Materialize.toast($toastContent, 2000,"alert-danger","top");
+
+	 }
 	});
 	 
 	/*--------------------------------*/
