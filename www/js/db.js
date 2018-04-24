@@ -41,6 +41,8 @@ nav_mobile+="<li><a href='a_propos.html'><i class='material-icons dp48'>info_out
 nav_mobile+="<li><a href='login.html'><i class='material-icons dp48'>settings_power</i> Déconnexion</a></li>";
 nav_mobile+="</ul>";
 nav_mobile+="<a href='#' data-activates='nav-mobile' class='button-collapse'><i class='material-icons'>menu</i></a>";
+nav_mobile+="<button type='button'  class='waves-effect waves-light btn-small btn-back' onclick='window.history.back();' ><i class='material-icons'>&#xE314;</i></button>";
+
 nav_mobile+="</div>";
 
 $("#nav_mobile").html(nav_mobile);

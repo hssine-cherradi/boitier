@@ -14,21 +14,24 @@ background-color: #0f5283;
 
 .span_right{float:right;font-size: 12px;}
 .span_right i{float:right;font-size: 16px !important;margin-top: 4px;margin-right: 4px !important;}
-.header-icon-g{float: left;margin-left: 24px;margin-right: 14px;margin-top: -5px;color: #ffffff;font-size: 38px;}.series .collection-item{.collection.with-header .collection-item {padding-left: 30px;  }width: 50%;float: left;color: #0089ec;font-size: 14px;line-height: 25px;padding: 3px;padding-left: 2px !important;width: 33.33%;}.series .collection-item i{float: left;margin-right: 10px;color: #ffffff;font-size: 27px;}
+.header-icon-g{float: left;margin-left: 24px;margin-right: 14px;margin-top: -5px;color: #ffffff;font-size: 32px;}.series .collection-item{.collection.with-header .collection-item {padding-left: 30px;  }width: 50%;float: left;color: #0089ec;font-size: 14px;line-height: 25px;padding: 3px;padding-left: 2px !important;width: 33.33%;}.series .collection-item i{float: left;margin-right: 10px;color: #ffffff;font-size: 27px;}
 .section.no-pad-bot {
     padding: 4px;
 }
 #categorie{
- background: #284f73;
+ font-size: 20px;
+ background: #23659f;
  color: white;
- padding: 3px;
+ padding: 6px;
  border-radius: 0px 20px 0px 20px;
  margin: 2px;
  border: 1px solid white;
  padding-left: 20px;
- background-image: linear-gradient(to bottom,#081a2a 0%,#2367a7 100%);
+ background-image: linear-gradient(to bottom,#23659f 0%,#2367a7 100%);
+ width: 100%;
+ float: left;
 }
-.card-content{margin-top:16px;width:100%;float:left;border: 1px solid rgba(128, 128, 128, 0.22);background: #284f73;}
+.card-content{margin-top: 8px;width:100%;float:left;border: 1px solid rgba(128, 128, 128, 0.22);background: #284f73;}
 
 .card-image img{
 max-height:400px;
@@ -72,7 +75,8 @@ box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgb(24, 87, 132), 0 3px 1p
  width: 50% !important;
 }
 .grey{background-color: #284f73 !important;}
-#valider{border-radius: 50%;line-height: 13px;}
+#valider{border-radius: 50%;line-height: 13px;margin-top: 20px;border: 2px solid white;width: 48%;min-height: 54px;}
+#corriger{border-radius: 50%;line-height: 13px;margin-top:20px;border: 2px solid white;width: 48%;min-height: 54px;}
 .h6{background: #726d6d;padding: 8px;border-bottom: 1px solid #d4cccc;padding-bottom: 15px;margin-bottom: 10px;color: white;}
 .resltat_q{background: #adacac;padding: 9px;color: white;margin-left: 20px;float: right;margin-top: -5px;}
 
@@ -150,10 +154,21 @@ border: 1px solid #a2c6d8;
 body{
 background: #adacac;
 }
-.collection li a{width: 100%;float:left;background-color: rgb(72, 105, 136);padding: 5px;background-image: linear-gradient(to bottom,#284f73 0%,#4f81b0 100%);}
+.collection li a{width: 100%;float:left;background-color: rgb(35, 101, 159);padding: 5px;background-image: linear-gradient(to bottom,#23659f 0%,#23659f 100%);}
 .sidenav-avatar .bottom{
 text-align: center;
 }
+
+.collection_cat li a {
+    width: 100%;
+    float: left;
+    background-color: rgb(35, 101, 159);
+    padding: 5px;
+    background-image: linear-gradient(to bottom,#23659f 0%,#23659f 100%);
+    border-radius: 10px;
+}
+.collection_cat li a p {text-align:center;margin: 0;padding: 0;}
+.collection_cat li a p img {height: 70px;}
 
 .sidenav-avatar .bottom img{
 text-align: center;
@@ -262,17 +277,11 @@ h6 {
     background: #adacac !important;
 }
 
-.id_r_view{
-background: #d7d6d6;
-height: 54px;
-width: 100% !important;
-float: left !important;
-padding-bottom: 27px !important;
-}
+.id_r_view{background: #d7d6d6;height: 54px;width: 100% !important;float: left !important;padding-bottom: 27px !important;}
 .id_r_view .r_ span{
     text-align: center;
     color: #3a3838;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .elm_rep{
@@ -323,4 +332,12 @@ width: 100%;
     overflow: visible;
 }
 .glb_rep{padding: 8px;height: 100px;margin-bottom: 8px;}
-.id_r_view .r_{background: #adacac;height: 40px;width: 40px;margin-top: 6px;border-bottom: 3px solid red;float: left;margin-right: 7px;margin-bottom: 17px;text-align: center;}
+.id_r_view .r_{background: #adacac;height: 46px;width: 45px;margin-top: 6px;border-bottom: 3px solid red;float: left;margin-right: 8px;margin-bottom: 17px;text-align: center;}
+.btn-back{ 
+    height: 53px;
+    margin-right: 3px;
+    background: #284f73;
+    border:none;
+    width: 36px;
+}
+.collection_cat li a p.title{background: #12497a;border-radius: 0px 0px 10px 10px;}

@@ -57,7 +57,8 @@
 	if(count>0){
 	for(i=0;i<count;i++){
 	if(data_res[i]['active']=="1"){
-	var url_s="series.html?categorie_id="+data_res[i]['id_categorie']+"&categorie="+data_res[i]['categorie']+"&icon="+data_res[i]['icon'];
+	
+	var url_s="categories.html?categorie_id="+data_res[i]['id_categorie']+"&categorie="+data_res[i]['categorie']+"&icon="+data_res[i]['icon'];
 	
    permis+="<div class='col s6'><div class='menu-ico'><a href='"+url_s+"'><span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
 }else{

@@ -37,26 +37,37 @@
 	   <div class="col s1 m1"></div>
 	    <div class="col s10 m10">
 		
-<div class="r_"><span id="r_1"><span></div>
-<div class="r_"><span id="r_2"><span></div>
-<div class="r_"><span id="r_3"><span></div>
-<div class="r_"><span id="r_4"><span></div>
+<div class="r_"><span id="r_1">-<span></div>
+<div class="r_"><span id="r_2">-<span></div>
+<div class="r_"><span id="r_3">-<span></div>
+<div class="r_"><span id="r_4">-<span></div>
 	   
 	   </div>
 	    <div class="col s1 m1"></div>
 	   </div>
 	
         <div class="card-content ">
+		
+		<div class="col s12 m12"><center><button class="aves-effect waves-light btn red" id="corriger" >
+		 <p> Corriger</p>
+		<p> تصحيح</p>
+		</button></center></div>
+
+		
 		<div class="col s12 m12 rep_q_user">
 		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>1</button></div>
 		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>2</button></div>
 		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>3</button></div>
 		<div class="col s12 m12 "><button class="btn-floating btn-large grey" value='2'>4</button></div>
         </div>
-		<div class="col s12 m12">
-		<br>
-		<div class="col s12 m12"><center><button class="aves-effect waves-light btn green" id="valider" > <i class="material-icons dp48">check</i> Valider</button></center></div>
-		</div>
+	
+		
+		<div class="col s12 m12"><center><button class="aves-effect waves-light btn green" id="valider" > 
+		 <p> Valider</p>
+<p> موافق</p>
+		</button></center></div>
+
+	
 		
 		 
 		<div class="col s12 m12 img_pub" style="display:none;">
@@ -137,7 +148,7 @@
 
 	$("#img_question").attr("src",data_res['url_image']);
 	$("#img_question").show();
-	audioElement.setAttribute('src', data_res['question_url_mp3c_arabic']);
+	// audioElement.setAttribute('src', data_res['question_url_mp3c_arabic']);
 	
 	$("#question_n").text(question_n);
 	$("#total_question").text(total_question);
@@ -179,7 +190,13 @@
 	
 
 	
-	
+		$("#corriger").click(function(){
+		$(".rep_q_user button").val("2");
+		$(".rep_q_user button").removeClass("amber");
+		$(".rep_q_user button").addClass("grey");
+		$("#r_1").text("");$("#r_2").text("");
+		$("#r_3").text("");$("#r_4").text("");
+		});
 	$("#valider").click(function(){
 
 	var elm_check= $(".rep_q_user button[value='1']").length;
