@@ -33,7 +33,8 @@ nav_mobile+="<img src='images/avatar_user.png' alt='' class='avatar circle'>";
 nav_mobile+="<span class='dropdown-button waves-effect waves-light' data-activates='dropdown1'><span id='nav_nom_famille'></span> <i class='ion-android-arrow-dropdown right'></i></span>";
 nav_mobile+="</div>";
 nav_mobile+="</li>";
-
+    
+nav_mobile+="<li><a href='dashboard.html'><i class='material-icons dp48'>insert_chart</i> Tableau de bord </a></li>";
 nav_mobile+="<li><a href='mon_compte.html'><i class='material-icons dp48'>account_box</i> Mon compte</a></li>";
 nav_mobile+="<li><a href='fournisseurs.html'><i class='material-icons dp48'>playlist_play</i> Nouveau test</a></li>";
 nav_mobile+="<li><a href='mes_tests.html'><i class='material-icons dp48'>assignment</i> Mes tests</a></li>";

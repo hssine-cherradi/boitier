@@ -361,7 +361,7 @@ width: 100%;
   z-index: -1;
 }
 #c_messages{
-background: #ee6e73;
+    background: #284f73;
     width: 27px;
     height: 27px;
     margin-right: 10px;
@@ -371,7 +371,7 @@ background: #ee6e73;
     border-radius: 20px;
     color: white;
     margin-top: 10px;
-    border: 1px solid #ca5257;
+    border: 1px solid #5d9eda;
     padding: 1px;
     font-size: 12px;
 }
@@ -431,4 +431,36 @@ color: #080808;
 }
 .btn.waves-effect{
     background-color: #2196f3;
+}
+.side-nav{
+    background: rgb(40, 79, 115);  
+}
+.side-nav li>a {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+    background: #142739;
+    border-bottom: 1px solid white;
+}
+.side-nav li>a i{
+    color: rgb(255, 255, 255);
+} 
+.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 32px 0 0;
+    width: 24px;
+    color: rgb(255, 255, 255);
+}
+.sidenav-avatar span.dropdown-button {
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid;
+    background: #142739;
 }
