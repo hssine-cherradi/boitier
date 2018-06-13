@@ -80,7 +80,7 @@ height: 15px;
 	if(data_res[i].c==0){
 	var p=0;
 	}else{
-	var p=((data_res[i].c_c*100)/data_res[i].c).toFixed(2);
+	var p=parseInt((data_res[i].c_c*100)/data_res[i].c).toFixed(2);
 	}
     if(p>0){
 	progression+="<h6> <i class='material-icons icon-header-cadr'>"+data_res[i].icon+"</i> "+"<span class='icon-header-cadr'>"+data_res[i].fournisseur+"</span> -> Catégorie "+data_res[i].categorie+" : "+p+"%"+"</h6>";
